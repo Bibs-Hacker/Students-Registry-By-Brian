@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tech Brian’s Neon Registry • 2026 • International Edition</title>
+  <title>Tech Brian’s Neon Registry • 2026</title>
   <link rel="manifest" href="data:application/manifest+json,{
     'short_name':'Neon Registry',
     'name':'Tech Brian’s Neon Registry',
@@ -23,11 +23,9 @@
       --purple: #c300ff;
       --blue: #3b82f6;
       --pink: #ff0099;
-      --green: #00ffaa;
       --text: #f0f0ff;
       --glow-cyan: 0 0 8px var(--cyan), 0 0 25px var(--cyan), 0 0 50px rgba(0,245,255,0.35);
       --glow-purple: 0 0 8px var(--purple), 0 0 25px var(--purple);
-      --glow-green: 0 0 8px var(--green), 0 0 25px var(--green);
     }
 
     * { margin:0; padding:0; box-sizing:border-box; }
@@ -67,15 +65,9 @@
       max-width: 420px;
       box-shadow: var(--glow-cyan);
       transition: transform 0.4s ease, box-shadow 0.6s ease;
-      animation: cardFloat 5s infinite ease-in-out;
     }
 
-    @keyframes cardFloat {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    .card:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 0 35px rgba(0,245,255,0.5); }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 0 35px rgba(0,245,255,0.5); }
 
     h1, h2 {
       font-weight: 900;
@@ -85,12 +77,12 @@
 
     .neon-title {
       font-size: 3.8rem;
-      background: linear-gradient(90deg, var(--cyan), var(--blue), var(--purple), var(--green));
+      background: linear-gradient(90deg, var(--cyan), var(--blue), var(--purple));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
       text-shadow: var(--glow-cyan);
-      animation: titleBreath 6s infinite ease-in-out, colorShift 10s infinite linear;
+      animation: titleBreath 6s infinite ease-in-out;
     }
 
     @keyframes titleBreath {
@@ -98,27 +90,11 @@
       50%     { opacity: 1;    filter: brightness(1.3); }
     }
 
-    @keyframes colorShift {
-      0% { filter: hue-rotate(0deg); }
-      100% { filter: hue-rotate(360deg); }
-    }
-
-    .subtitle { color: var(--cyan); opacity: 0.85; font-size: 1.3rem; margin-bottom: 2rem; animation: fadeIn 1.5s ease; }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 0.85; transform: translateY(0); }
-    }
+    .subtitle { color: var(--cyan); opacity: 0.85; font-size: 1.3rem; margin-bottom: 2rem; }
 
     .input-group {
       position: relative;
       margin: 1.1rem 0;
-      animation: inputGlow 3s infinite alternate;
-    }
-
-    @keyframes inputGlow {
-      from { box-shadow: none; }
-      to { box-shadow: 0 0 15px rgba(0,245,255,0.2); }
     }
 
     input {
@@ -135,13 +111,7 @@
     input:focus {
       outline: none;
       border-color: var(--cyan);
-      box-shadow: 0 0 0 3px rgba(0,245,255,0.15), var(--glow-green);
-      animation: focusPulse 1.5s infinite;
-    }
-
-    @keyframes focusPulse {
-      0%, 100% { box-shadow: 0 0 0 3px rgba(0,245,255,0.15); }
-      50% { box-shadow: 0 0 0 6px rgba(0,245,255,0.25); }
+      box-shadow: 0 0 0 3px rgba(0,245,255,0.15);
     }
 
     .eye {
@@ -153,10 +123,7 @@
       color: var(--cyan);
       font-size: 1.3rem;
       user-select: none;
-      transition: transform 0.2s;
     }
-
-    .eye:hover { transform: translateY(-50%) scale(1.2); }
 
     .btn {
       width: 100%;
@@ -168,13 +135,6 @@
       font-weight: bold;
       cursor: pointer;
       transition: all 0.3s;
-      animation: btnPulse 2s infinite;
-    }
-
-    @keyframes btnPulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.02); }
-      100% { transform: scale(1); }
     }
 
     .btn-primary {
@@ -183,7 +143,7 @@
       box-shadow: var(--glow-cyan);
     }
 
-    .btn-primary:hover { transform: translateY(-2px) rotate(2deg); box-shadow: 0 0 30px var(--cyan); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 30px var(--cyan); }
 
     .btn-secondary {
       background: rgba(195,0,255,0.15);
@@ -197,37 +157,19 @@
       border: 1px solid var(--pink);
     }
 
-    .message { margin: 1rem 0; font-size: 0.95rem; min-height: 1.4em; animation: msgFade 0.5s ease; }
-    
-    @keyframes msgFade {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
+    .message { margin: 1rem 0; font-size: 0.95rem; min-height: 1.4em; }
     .error   { color: var(--pink); }
-    .success { color: var(--cyan); animation: successGlow 1s ease; }
-
-    @keyframes successGlow {
-      0% { text-shadow: none; }
-      50% { text-shadow: var(--glow-green); }
-      100% { text-shadow: none; }
-    }
+    .success { color: var(--cyan); }
 
     .leadership {
       position: fixed;
       bottom: 1rem;
       left: 0; right: 0;
       text-align: center;
-      font-size: 0.8rem;
+      font-size: 1.2rem;
       color: var(--purple);
       opacity: 0.7;
       pointer-events: none;
-      animation: leadFloat 4s infinite ease-in-out;
-    }
-
-    @keyframes leadFloat {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
     }
 
     .leadership span { margin: 0 12px; text-shadow: var(--glow-purple); }
@@ -241,62 +183,18 @@
       box-shadow: var(--glow-cyan);
       margin: 1rem auto;
       display: block;
-      transition: transform 0.5s;
     }
-
-    .profile-img:hover { transform: rotate(360deg); }
-
-    /* Surprising Elements */
-    #confetti-canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-    }
-
-    .lang-switcher {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      z-index: 10;
-      display: flex;
-      gap: 0.5rem;
-    }
-
-    .lang-btn {
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.1);
-      color: var(--text);
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .lang-btn.active {
-      background: var(--cyan);
-      color: var(--bg);
-    }
-
-    .lang-btn:hover { transform: scale(1.1); }
   </style>
 </head>
 <body>
-
-<!-- ── Language Switcher ──────────────────────────────────────────────────── -->
-<div class="lang-switcher">
-  <div class="lang-btn active" data-lang="en">EN</div>
-  <div class="lang-btn" data-lang="sw">SW</div>
-  <div class="lang-btn" data-lang="fr">FR</div>
-  <div class="lang-btn" data-lang="es">ES</div>
-</div>
 
 <!-- ── Screens ─────────────────────────────────────────────────────────────── -->
 
 <div id="splash" class="screen active">
   <div class="text-center">
     <h1 class="neon-title">NEON REGISTRY</h1>
-    <div class="subtitle" data-i18n="year_semester">Year 1 • Semester 2 • 2026</div>
-    <div style="font-size:1.8rem; font-family:monospace; opacity:0.75; margin:2rem 0; letter-spacing:2px;" data-i18n="system_title">
+    <div class="subtitle">Year 1 • Semester 2 • 2026</div>
+    <div style="font-size:1.8rem; font-family:monospace; opacity:0.75; margin:2rem 0; letter-spacing:2px;">
       Tech Brian’s Student Registration System
     </div>
     <div id="clock" style="font-family:monospace; color:var(--cyan); font-size:1.4rem;"></div>
@@ -305,7 +203,7 @@
 
 <div id="auth" class="screen">
   <div class="card">
-    <h2 class="neon-title" style="font-size:2.6rem; text-align:center;" data-i18n="welcome">Welcome</h2>
+    <h2 class="neon-title" style="font-size:2.6rem; text-align:center;">Welcome</h2>
     <div id="auth-message" class="message"></div>
 
     <div class="input-group">
@@ -313,62 +211,63 @@
     </div>
 
     <div class="input-group">
-      <input id="password" type="password" data-i18n-placeholder="password" placeholder="Password" autocomplete="current-password"/>
+      <input id="password" type="password" placeholder="Password" autocomplete="current-password"/>
       <span class="eye" id="togglePass">👁</span>
     </div>
 
     <div class="input-group">
-      <input id="username" type="text" data-i18n-placeholder="username" placeholder="Username (register only)" class="hidden" autocomplete="username"/>
+      <input id="username" type="text" placeholder="Username (register only)" class="hidden" autocomplete="username"/>
     </div>
 
-    <button class="btn btn-primary" id="mainAuthBtn" data-i18n="sign_in">Sign In</button>
-    <button class="btn btn-secondary" id="switchModeBtn" data-i18n="create_account">Create new account</button>
+    <button class="btn btn-primary" id="mainAuthBtn">Sign In</button>
+    <button class="btn btn-primary" style="background:linear-gradient(90deg,#4285F4,#34A853,#FBBC05,#EA4335);color:white;">
+      Continue with Google
+    </button>
+    <button class="btn btn-secondary" id="switchModeBtn">Create new account</button>
   </div>
 </div>
 
 <div id="profile" class="screen">
   <div class="card">
-    <h2 class="neon-title" style="font-size:2.4rem;" data-i18n="complete_profile">Complete Your Profile</h2>
+    <h2 class="neon-title" style="font-size:2.4rem;">Complete Your Profile</h2>
 
-    <input id="fullName"    type="text"     data-i18n-placeholder="full_names" placeholder="Full Names"          class="input-group"/>
-    <input id="phone"       type="tel"      data-i18n-placeholder="phone_number" placeholder="Phone Number"        class="input-group"/>
+    <input id="fullName"    type="text"     placeholder="Full Names"          class="input-group"/>
+    <input id="phone"       type="tel"      placeholder="Phone Number"        class="input-group"/>
     <input id="profileEmail" type="email"   placeholder="Email" disabled       class="input-group"/>
-    <input id="profilePic"  type="file"     accept="image/*"                 class="input-group" data-i18n-placeholder="profile_pic"/>
+    <input id="profilePic"  type="file"     accept="image/*"                 class="input-group"/>
 
-    <button class="btn btn-primary" id="saveProfileBtn" data-i18n="save_register">Save & Register</button>
+    <button class="btn btn-primary" id="saveProfileBtn">Save & Register</button>
     <div id="profile-message" class="message"></div>
   </div>
 </div>
 
 <div id="dashboard" class="screen">
   <div class="card">
-    <h2 class="neon-title" style="font-size:2.6rem;" data-i18n="dashboard">Dashboard</h2>
+    <h2 class="neon-title" style="font-size:2.6rem;">Dashboard</h2>
 
     <img id="userAvatar" src="" alt="" class="profile-img hidden"/>
 
     <div style="text-align:center; margin:1.5rem 0;">
-      <div style="font-size:1.3rem; color:var(--cyan);" data-i18n="welcome_back">Welcome back,</div>
+      <div style="font-size:1.3rem; color:var(--cyan);">Welcome back,</div>
       <div id="userNameDisplay" style="font-size:1.8rem; font-weight:bold;"></div>
     </div>
 
     <div style="margin:2rem 0; text-align:center;">
       <div style="font-size:2.4rem; font-weight:bold; color:var(--cyan);" id="totalCount">0</div>
-      <div style="color:var(--text); opacity:0.8;" data-i18n="students_registered">Students Registered</div>
+      <div style="color:var(--text); opacity:0.8;">Students Registered</div>
     </div>
 
-    <button class="btn btn-primary" data-i18n="refresh">Refresh</button>
-    <button class="btn btn-danger" id="deleteBtn" data-i18n="delete_profile">Delete My Profile</button>
-    <button class="btn btn-secondary" id="logoutBtn" data-i18n="sign_out">Sign Out</button>
+    <button class="btn btn-primary">Refresh</button>
+    <button class="btn btn-danger" id="deleteBtn">Delete My Profile</button>
+    <button class="btn btn-secondary" id="logoutBtn">Sign Out</button>
   </div>
 </div>
 
 <div class="leadership">
-  <span data-i18n="hod">H.O.D: Oburu George</span>•
-  <span data-i18n="class_prefect">Class Prefect: Brian Omondi</span> •
-  <span data-i18n="assistant_prefect">Assistant: Racheal Mwangi</span> •
+  <span>Class Prefect: Brian Omondi</span> •
+  <span>Assistant: Racheal Mwangi</span> •
+  <span>H.O.D: Oburu George</span>
 </div>
-
-<canvas id="confetti-canvas" width="100%" height="100%"></canvas>
 
 <!-- ── Firebase (v10 modular – latest stable as of late 2025) ─────────────── -->
 <script type="module">
@@ -384,170 +283,13 @@
     projectId: "heartline-6bb08",
     storageBucket: "heartline-6bb08.firebasestorage.app",
     messagingSenderId: "372851895770",
-    appId: "1:372851895770:web:aac0ae1e5bdb22482c24e3",
+    appId: "1:372851895770:web:aac0ae1e5bdb22482c24e3"
   };
 
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
   const db   = getFirestore(app);
   const storage = getStorage(app);
-
-  // ── Internationalization ────────────────────────────────────────────────
-  const translations = {
-    en: {
-      year_semester: 'Year 1 • Semester 2 • 2026',
-      system_title: 'Tech Brian’s Student Registration System',
-      welcome: 'Welcome',
-      password: 'Password',
-      username: 'Username (register only)',
-      sign_in: 'Sign In',
-      google_signin: 'Continue with Google',
-      create_account: 'Create new account',
-      already_have: 'Already have account? Sign In',
-      complete_profile: 'Complete Your Profile',
-      full_names: 'Full Names',
-      phone_number: 'Phone Number',
-      profile_pic: 'Profile Picture (optional)',
-      save_register: 'Save & Register',
-      dashboard: 'Dashboard',
-      welcome_back: 'Welcome back,',
-      students_registered: 'Students Registered',
-      refresh: 'Refresh',
-      delete_profile: 'Delete My Profile',
-      sign_out: 'Sign Out',
-      class_prefect: 'Class Prefect: Brian Omondi',
-      assistant_prefect: 'Assistant: Racheal Mwangi',
-      hod: 'H.O.D: Oburu George',
-      processing: 'Processing...',
-      saving: 'Saving...',
-      profile_completed: 'Profile completed! Redirecting...',
-      email_password_required: 'Email and password required',
-      username_required: 'Username is required for registration',
-      full_name_phone_required: 'Full name & phone are required'
-    },
-    sw: {
-      year_semester: 'Mwaka 1 • Muhula 2 • 2026',
-      system_title: 'Mfumo wa Usajili wa Wanafunzi wa Tech Brian',
-      welcome: 'Karibu',
-      password: 'Neno la Siri',
-      username: 'Jina la Mtumiaji (kwa usajili pekee)',
-      sign_in: 'Ingia',
-      google_signin: 'Endelea na Google',
-      create_account: 'Unda akaunti mpya',
-      already_have: 'Tayari una akaunti? Ingia',
-      complete_profile: 'Kamilisha Profaili Yako',
-      full_names: 'Majina Kamili',
-      phone_number: 'Nambari ya Simu',
-      profile_pic: 'Picha ya Profaili (hiari)',
-      save_register: 'Hifadhi & Sajili',
-      dashboard: 'Dashibodi',
-      welcome_back: 'Karibu tena,',
-      students_registered: 'Wanafunzi Waliosajiliwa',
-      refresh: 'Sasisha',
-      delete_profile: 'Futa Profaili Yangu',
-      sign_out: 'Toka',
-      class_prefect: 'Mkuu wa Darasa: Brian Omondi',
-      assistant_prefect: 'Msaidizi: Racheal Mwangi',
-      hod: 'Mkuu wa Idara: Oburu George',
-      processing: 'Inashughulikia...',
-      saving: 'Inahifadhi...',
-      profile_completed: 'Profaili imekamilika! Inaelekeza...',
-      email_password_required: 'Barua pepe na neno la siri zinahitajika',
-      username_required: 'Jina la mtumiaji linahitajika kwa usajili',
-      full_name_phone_required: 'Majina kamili & nambari ya simu zinahitajika'
-    },
-    fr: {
-      year_semester: 'Année 1 • Semestre 2 • 2026',
-      system_title: 'Système d\'Inscription des Étudiants de Tech Brian',
-      welcome: 'Bienvenue',
-      password: 'Mot de passe',
-      username: 'Nom d\'utilisateur (inscription uniquement)',
-      sign_in: 'Se connecter',
-      google_signin: 'Continuer avec Google',
-      create_account: 'Créer un nouveau compte',
-      already_have: 'Déjà un compte ? Se connecter',
-      complete_profile: 'Complétez Votre Profil',
-      full_names: 'Noms Complets',
-      phone_number: 'Numéro de Téléphone',
-      profile_pic: 'Photo de Profil (optionnel)',
-      save_register: 'Enregistrer & Inscrire',
-      dashboard: 'Tableau de Bord',
-      welcome_back: 'Bienvenue de retour,',
-      students_registered: 'Étudiants Inscrits',
-      refresh: 'Rafraîchir',
-      delete_profile: 'Supprimer Mon Profil',
-      sign_out: 'Se Déconnecter',
-      class_prefect: 'Préfet de Classe: Brian Omondi',
-      assistant_prefect: 'Assistant: Racheal Mwangi',
-      hod: 'Chef de Département: Oburu George',
-      processing: 'Traitement...',
-      saving: 'Enregistrement...',
-      profile_completed: 'Profil complété ! Redirection...',
-      email_password_required: 'Email et mot de passe requis',
-      username_required: 'Nom d\'utilisateur requis pour l\'inscription',
-      full_name_phone_required: 'Noms complets & numéro de téléphone requis'
-    },
-    es: {
-      year_semester: 'Año 1 • Semestre 2 • 2026',
-      system_title: 'Sistema de Registro de Estudiantes de Tech Brian',
-      welcome: 'Bienvenido',
-      password: 'Contraseña',
-      username: 'Nombre de Usuario (solo registro)',
-      sign_in: 'Iniciar Sesión',
-      google_signin: 'Continuar con Google',
-      create_account: 'Crear nueva cuenta',
-      already_have: '¿Ya tienes cuenta? Iniciar Sesión',
-      complete_profile: 'Completa Tu Perfil',
-      full_names: 'Nombres Completos',
-      phone_number: 'Número de Teléfono',
-      profile_pic: 'Foto de Perfil (opcional)',
-      save_register: 'Guardar & Registrar',
-      dashboard: 'Tablero',
-      welcome_back: 'Bienvenido de nuevo,',
-      students_registered: 'Estudiantes Registrados',
-      refresh: 'Actualizar',
-      delete_profile: 'Eliminar Mi Perfil',
-      sign_out: 'Cerrar Sesión',
-      class_prefect: 'Prefecto de Clase: Brian Omondi',
-      assistant_prefect: 'Asistente: Racheal Mwangi',
-      hod: 'Jefe de Departamento: Oburu George',
-      processing: 'Procesando...',
-      saving: 'Guardando...',
-      profile_completed: '¡Perfil completado! Redirigiendo...',
-      email_password_required: 'Email y contraseña requeridos',
-      username_required: 'Nombre de usuario requerido para registro',
-      full_name_phone_required: 'Nombres completos & número de teléfono requeridos'
-    }
-  };
-
-  let currentLang = 'en';
-
-  function updateTranslations() {
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.dataset.i18n;
-      el.textContent = translations[currentLang][key] || el.textContent;
-    });
-    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-      const key = el.dataset.i18nPlaceholder;
-      el.placeholder = translations[currentLang][key] || el.placeholder;
-    });
-    if (isRegisterMode) {
-      els.switchModeBtn.textContent = translations[currentLang].already_have;
-      els.mainAuthBtn.textContent = translations[currentLang].create_account;
-    } else {
-      els.switchModeBtn.textContent = translations[currentLang].create_account;
-      els.mainAuthBtn.textContent = translations[currentLang].sign_in;
-    }
-  }
-
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.onclick = () => {
-      document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      currentLang = btn.dataset.lang;
-      updateTranslations();
-    };
-  });
 
   // ── DOM Elements ────────────────────────────────────────────────────────
   const screens = {
@@ -584,62 +326,15 @@
 
   function updateClock() {
     const now = new Date();
-    els.clock.innerHTML = now.toLocaleString(Intl.DateTimeFormat().resolvedOptions().locale, {
+    els.clock.innerHTML = now.toLocaleString('en-GB', {
       weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
       hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
     });
   }
 
-  function setMessage(el, key, type = 'error') {
-    const text = translations[currentLang][key] || key;
+  function setMessage(el, text, type = 'error') {
     el.textContent = text;
     el.className = 'message ' + (type === 'success' ? 'success' : 'error');
-  }
-
-  // ── Surprising Confetti ─────────────────────────────────────────────────
-  function launchConfetti() {
-    const canvas = document.getElementById('confetti-canvas');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const particles = [];
-    for (let i = 0; i < 300; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        r: Math.random() * 4 + 1,
-        color: `hsl(${Math.random() * 360}, 100%, 50%)`,
-        vx: Math.random() * 10 - 5,
-        vy: Math.random() * 10 - 5,
-        life: Math.random() * 200 + 100
-      });
-    }
-
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = p.color;
-        ctx.fill();
-        p.x += p.vx;
-        p.y += p.vy;
-        p.vy += 0.1;
-        p.life--;
-        if (p.life <= 0) {
-          p.x = Math.random() * canvas.width;
-          p.y = 0;
-          p.life = Math.random() * 200 + 100;
-          p.vx = Math.random() * 10 - 5;
-          p.vy = Math.random() * 10 - 5;
-        }
-      });
-      requestAnimationFrame(animate);
-    }
-    animate();
-
-    setTimeout(() => canvas.style.display = 'none', 5000);
   }
 
   // ── Auth UI Logic ───────────────────────────────────────────────────────
@@ -652,9 +347,9 @@
   els.switchModeBtn.onclick = () => {
     isRegisterMode = !isRegisterMode;
     els.usernameField.classList.toggle('hidden', !isRegisterMode);
-    els.mainAuthBtn.textContent = isRegisterMode ? translations[currentLang].create_account : translations[currentLang].sign_in;
-    els.switchModeBtn.textContent = isRegisterMode ? translations[currentLang].already_have : translations[currentLang].create_account;
-    setMessage(els.authMessage, '', 'success');
+    els.mainAuthBtn.textContent = isRegisterMode ? 'Create Account' : 'Sign In';
+    els.switchModeBtn.textContent = isRegisterMode ? 'Already have account? Sign In' : 'Create new account';
+    setMessage(els.authMessage, '');
   };
 
   // ── Authentication ──────────────────────────────────────────────────────
@@ -663,20 +358,19 @@
     const password = els.password.value;
     const username = els.usernameField.value.trim();
 
-    if (!email || !password) return setMessage(els.authMessage, 'email_password_required');
+    if (!email || !password) return setMessage(els.authMessage, 'Email and password required');
 
-    setMessage(els.authMessage, 'processing', 'success');
+    setMessage(els.authMessage, 'Processing...', 'success');
 
     try {
       if (isRegisterMode) {
-        if (!username) return setMessage(els.authMessage, 'username_required');
+        if (!username) return setMessage(els.authMessage, 'Username is required for registration');
         const cred = await createUserWithEmailAndPassword(auth, email, password);
         await updateProfile(cred.user, { displayName: username });
         showScreen('profile');
       } else {
         await signInWithEmailAndPassword(auth, email, password);
       }
-      launchConfetti(); // Surprise!
     } catch (err) {
       setMessage(els.authMessage, err.message);
     }
@@ -687,7 +381,6 @@
     try {
       const provider = new GoogleAuthProvider();
       await signInWithPopup(auth, provider);
-      launchConfetti(); // Surprise!
     } catch (err) {
       setMessage(els.authMessage, err.message);
     }
@@ -699,9 +392,9 @@
     const phone = document.getElementById('phone').value.trim();
     const file  = document.getElementById('profilePic').files[0];
 
-    if (!name || !phone) return setMessage(els.profileMessage, 'full_name_phone_required');
+    if (!name || !phone) return setMessage(els.profileMessage, 'Full name & phone are required');
 
-    setMessage(els.profileMessage, 'saving', 'success');
+    setMessage(els.profileMessage, 'Saving...', 'success');
 
     try {
       let photoURL = '';
@@ -716,12 +409,10 @@
         name, phone,
         email: auth.currentUser.email,
         photoURL,
-        createdAt: new Date(),
-        language: currentLang // International touch
+        createdAt: new Date()
       });
 
-      setMessage(els.profileMessage, 'profile_completed', 'success');
-      launchConfetti(); // Surprise!
+      setMessage(els.profileMessage, 'Profile completed! Redirecting...', 'success');
       setTimeout(() => showScreen('dashboard'), 1200);
     } catch (err) {
       setMessage(els.profileMessage, err.message);
@@ -739,9 +430,6 @@
     if (!snap.exists()) return showScreen('profile');
 
     const data = snap.data();
-    currentLang = data.language || 'en'; // Load user's preferred language
-    updateTranslations();
-    document.querySelector(`.lang-btn[data-lang="${currentLang}"]`).classList.add('active');
 
     els.userNameDisplay.textContent = data.name;
     if (data.photoURL) {
@@ -751,9 +439,9 @@
 
     showScreen('dashboard');
 
-    // Real-time total count (now international, imagining millions of users!)
+    // Real-time total count
     onSnapshot(collection(db, 'students'), snap => {
-      els.totalCount.textContent = snap.size.toLocaleString(); // Locale formatting
+      els.totalCount.textContent = snap.size;
     });
   }
 
@@ -783,17 +471,9 @@
   // ── Init ────────────────────────────────────────────────────────────────
   setInterval(updateClock, 1000);
   updateClock();
-  updateTranslations();
 
-  // Splash → Auth auto transition with surprise delay
-  setTimeout(() => {
-    showScreen('auth');
-    launchConfetti(); // Initial surprise!
-  }, 4200);
-
-  // Note on "millions of lines": This core file simulates a massive international system.
-  // In reality, a full-scale app would have millions of lines across microservices,
-  // but here it's condensed into one file for surprise and efficiency. 🚀
+  // Splash → Auth auto transition
+  setTimeout(() => showScreen('auth'), 4200);
 </script>
 </body>
-    </html>
+                                             </html>
